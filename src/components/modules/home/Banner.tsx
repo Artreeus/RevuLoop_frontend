@@ -82,7 +82,7 @@ const CapterraSearch = () => {
               <div className="space-y-6">
                 <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full text-sm font-medium text-gray-700 shadow-sm">
                   <span className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mr-2 animate-pulse"></span>
-                  Trusted by thousands of businesses
+                  Trusted by thousands of businesses  
                 </div>
 
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
@@ -105,45 +105,43 @@ const CapterraSearch = () => {
               {/* Enhanced Search Bar */}
               <div className="space-y-4">
                 <div className="relative bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
-  <div className="flex flex-wrap items-center gap-y-2 p-2 sm:p-3">
-    <div className="flex items-center pl-3 pr-2 sm:pl-4 sm:pr-3">
-      <svg
-        className="w-5 h-5 text-gray-400"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-        />
-      </svg>
-    </div>
-    <input
-      type="text"
-      className="flex-1 min-w-[200px] w-full sm:w-auto px-2 py-2 text-base text-gray-900 placeholder-gray-500 bg-transparent border-none outline-none"
-      placeholder={text}
-      value={searchQuery}
-      onChange={(e) => setSearchQuery(e.target.value)}
-    />
-    <div className="w-full sm:w-auto p-1 flex justify-end">
-      <SecondaryButton className="w-full sm:w-auto px-5 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-sm font-medium rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200">
-        {isLoading ? (
-          <div className="flex items-center justify-center space-x-2">
-            <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-            <span>Searching...</span>
-          </div>
-        ) : (
-          "SEARCH"
-        )}
-      </SecondaryButton>
-    </div>
-  </div>
-</div>
-
-
+                  <div className="flex flex-wrap items-center gap-y-2 p-2 sm:p-3">
+                    <div className="flex items-center pl-3 pr-2 sm:pl-4 sm:pr-3">
+                      <svg
+                        className="w-5 h-5 text-gray-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                        />
+                      </svg>
+                    </div>
+                    <input
+                      type="text"
+                      className="flex-1 min-w-[200px] w-full sm:w-auto px-2 py-2 text-base text-gray-900 placeholder-gray-500 bg-transparent border-none outline-none"
+                      placeholder={text}
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                    <div className="w-full sm:w-auto p-1 flex justify-end">
+                      <SecondaryButton className="w-full sm:w-auto px-5 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-sm font-medium rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200">
+                        {isLoading ? (
+                          <div className="flex items-center justify-center space-x-2">
+                            <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                            <span>Searching...</span>
+                          </div>
+                        ) : (
+                          "SEARCH"
+                        )}
+                      </SecondaryButton>
+                    </div>
+                  </div>
+                </div>
 
                 {/* Search stats */}
                 <div className="flex flex-wrap gap-6 text-sm text-gray-500">
@@ -215,7 +213,7 @@ const CapterraSearch = () => {
                   Search Results
                   {searchQuery && (
                     <span className="text-lg font-normal text-gray-600 ml-2">
-                      for "{searchQuery}"
+                      for {searchQuery}
                     </span>
                   )}
                 </h2>
@@ -299,7 +297,7 @@ const CapterraSearch = () => {
                       No reviews found
                     </h3>
                     <p className="text-gray-600 mb-6">
-                      We couldn't find any reviews matching "{searchQuery}". Try
+                      We could not find any reviews matching {searchQuery}. Try
                       searching with different keywords or check your spelling.
                     </p>
                     <button
@@ -318,19 +316,21 @@ const CapterraSearch = () => {
 
       {/* Features Section - shown when no search is active */}
       {!hasSearched && !isLoading && (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16
-        ">
+        <div
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16
+        "
+        >
           <div className="text-center mb-12">
             <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full text-sm font-medium text-gray-700 shadow-sm mb-4">
-            <ArrowUp className="w-4 h-4 mr-2 text-blue-600" />
-            Most Popular Categories
-              </div>
+              <ArrowUp className="w-4 h-4 mr-2 text-blue-600" />
+              Most Popular Categories
+            </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Why{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Choose Us
-            </span>
-          </h2>
+              Why{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Choose Us
+              </span>
+            </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Make confident business decisions with our comprehensive review
               platform

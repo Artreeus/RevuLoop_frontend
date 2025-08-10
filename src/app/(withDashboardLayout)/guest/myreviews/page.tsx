@@ -75,18 +75,21 @@ const MyReviewsPage = () => {
     fetchReviews();
   }, [user?.userId]);
 
-
   // Filter reviews based on active tab
-  const filteredReviews: Review[] = reviews?.filter((review: TAdminReview) => {
-    if (activeTab === "all") return true;
-    if (activeTab === "published") return review.status === "PUBLISHED";
-    if (activeTab === "draft") return review.status === "DRAFT";
-    if (activeTab === "premium") return review.isPremium;
-    return true;
-  });
+  const filteredReviews: Review[] = Array.isArray(reviews)
+    ? reviews.filter((review: TAdminReview) => {
+        if (activeTab === "all") return true;
+        if (activeTab === "published") return review.status === "PUBLISHED";
+        if (activeTab === "draft") return review.status === "DRAFT";
+        if (activeTab === "premium") return review.isPremium;
+        return true;
+      })
+    : [];
+
+  console.log("test", filteredReviews);
 
   // Sort reviews
-  const sortedReviews = [...filteredReviews].sort((a, b) => {
+  const sortedReviews = [...filteredReviews]?.sort((a, b) => {
     if (sortBy === "newest") {
       return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
     }
@@ -252,7 +255,7 @@ const MyReviewsPage = () => {
                     <Image
                       width={200}
                       height={200}
-                      src={review.image || []}
+                      src={review?.image}
                       alt={review.title}
                       className="w-full h-full object-cover"
                     />

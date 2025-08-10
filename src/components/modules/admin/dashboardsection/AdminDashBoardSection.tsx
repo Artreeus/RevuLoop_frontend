@@ -8,7 +8,6 @@ import {
   TrendingUp,
   Users,
   Activity,
-  Calendar,
   BarChart3,
   Award,
   Clock,

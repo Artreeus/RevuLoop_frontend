@@ -5,20 +5,35 @@ import { jwtDecode } from "jwt-decode";
 import { revalidateTag } from "next/cache";
 import { cookies } from "next/headers";
 
-export const registerUser = async (userData: FormData) => {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/user/create-guest`, {
-      method: "POST",
-      body: userData,
-    });
+// export const registerUser = async (userData: FormData) => {
+//   try {
+//     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/user/create-guest`, {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: userData,
+//     });
 
-    const result = await res.json();
-    return result;
-  } catch (error: any) {
-    return Error(error);
-  }
+//     const result = await res.json();
+//     return result;
+//   } catch (error: any) {
+//     return Error(error);
+//   }
+// };
+
+
+export const registerUser = async (payload: any) => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/user/create-guest`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  return res.json();
 };
-
 
 
 export const loginUser = async (userData: any) => {
@@ -64,7 +79,7 @@ export const getMyProfile = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/user/me`, {
       headers: {
         Authorization: `${accessToken}`,
-       
+
       },
       next: {
         tags: ["Profile"],
@@ -78,17 +93,47 @@ export const getMyProfile = async () => {
   }
 };
 
+// export const updateProfile = async (payload: {
+//   name: string;
+//   contactNumber: string;
+//   profilePhoto?: string | null;
+// }) => {
+//   try {
+//     const accessToken = (await cookies()).get("accessToken")?.value;
 
-export const updateProfile = async (formData: FormData) => {
+//     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/user/update-my-profile`, {
+//       method: "PATCH",
+//       headers: {
+//         "Content-Type": "application/json",
+//         Authorization: `${accessToken}`,
+//       },
+//       body: JSON.stringify(payload),
+//     });
+
+//     revalidateTag("Profile");
+//     const result = await res.json();
+//     return result;
+//   } catch (error: any) {
+//     return { success: false, error };
+//   }
+// };
+
+
+export const updateProfile = async (payload: {
+  name: string;
+  contactNumber: string;
+  profilePhoto?: string | null;
+}) => {
   try {
     const accessToken = (await cookies()).get("accessToken")?.value;
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/user/update-my-profile`, {
       method: "PATCH",
       headers: {
+        "Content-Type": "application/json",
         Authorization: `${accessToken}`,
       },
-      body: formData,
+      body: JSON.stringify(payload),
     })
 
     revalidateTag("Profile");

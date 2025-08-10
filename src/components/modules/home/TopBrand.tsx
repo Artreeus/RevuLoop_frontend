@@ -1,17 +1,17 @@
 "use client";
-import Image from 'next/image';
-import React, { useState, useEffect } from 'react';
-import Marquee from 'react-fast-marquee';
-import { Award, Star, TrendingUp, Users } from 'lucide-react';
-import img1 from '../../../assets/brandLogo/todo.png';
-import img2 from '../../../assets/brandLogo/amazon.png';
-import img3 from '../../../assets/brandLogo/android.png';
-import img4 from '../../../assets/brandLogo/adidas.png';
-import img5 from '../../../assets/brandLogo/apple.png';
-import img6 from '../../../assets/brandLogo/fedex.png';
-import img8 from '../../../assets/brandLogo/rolex.png';
-import img9 from '../../../assets/brandLogo/algolia.png';
-import img10 from '../../../assets/brandLogo/google.png';
+import Image from "next/image";
+import React, { useState, useEffect } from "react";
+import Marquee from "react-fast-marquee";
+import { Award, Star, TrendingUp, Users } from "lucide-react";
+import img1 from "../../../assets/brandLogo/todo.png";
+import img2 from "../../../assets/brandLogo/amazon.png";
+import img3 from "../../../assets/brandLogo/android.png";
+import img4 from "../../../assets/brandLogo/adidas.png";
+import img5 from "../../../assets/brandLogo/apple.png";
+import img6 from "../../../assets/brandLogo/fedex.png";
+import img8 from "../../../assets/brandLogo/rolex.png";
+import img9 from "../../../assets/brandLogo/algolia.png";
+import img10 from "../../../assets/brandLogo/google.png";
 
 const TopBrand = () => {
   const [isPaused, setIsPaused] = useState(false);
@@ -51,11 +51,14 @@ const TopBrand = () => {
     { icon: Users, label: "Trusted Partners", value: "500+" },
     { icon: Star, label: "Average Rating", value: "4.9" },
     { icon: TrendingUp, label: "Growth Rate", value: "250%" },
-    { icon: Award, label: "Years Experience", value: "10+" }
+    { icon: Award, label: "Years Experience", value: "10+" },
   ];
 
   return (
-    <div id="top-brand-section" className="relative py-16 bg-gradient-to-br from-blue-50 via-white to-purple-50 overflow-hidden">
+    <div
+      id="top-brand-section"
+      className="relative py-16 bg-gradient-to-br from-blue-50 via-white to-purple-50 overflow-hidden"
+    >
       {/* Background decorative elements */}
       <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5"></div>
       <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-to-br from-blue-400/20 to-transparent rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
@@ -68,16 +71,17 @@ const TopBrand = () => {
             <Award className="w-4 h-4 mr-2 text-blue-600" />
             Trusted by Industry Leaders
           </div>
-          
+
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             Our Amazing{" "}
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Brand Partners
             </span>
           </h2>
-          
+
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Join the world's leading brands who trust us with their customer feedback and reviews
+            Join the worlds leading brands who trust us with their customer
+            feedback and reviews
           </p>
         </div>
 
@@ -87,14 +91,18 @@ const TopBrand = () => {
             <div
               key={index}
               className={`bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 p-6 text-center transform ${
-                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                isVisible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-4 opacity-0"
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-3">
                 <stat.icon className="w-6 h-6 text-white" />
               </div>
-              <div className="text-2xl font-bold text-gray-900 mb-1">{stat.value}</div>
+              <div className="text-2xl font-bold text-gray-900 mb-1">
+                {stat.value}
+              </div>
               <div className="text-sm text-gray-600">{stat.label}</div>
             </div>
           ))}
@@ -103,9 +111,11 @@ const TopBrand = () => {
         {/* Enhanced Marquee Section */}
         <div className="relative">
           {/* Marquee Container */}
-          <div 
+          <div
             className={`bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden transition-all duration-300 ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+              isVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-4 opacity-0"
             }`}
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
@@ -119,11 +129,19 @@ const TopBrand = () => {
                     <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
                     <div className="w-3 h-3 bg-green-400 rounded-full"></div>
                   </div>
-                  <span className="text-sm font-medium text-gray-600">Brand Showcase</span>
+                  <span className="text-sm font-medium text-gray-600">
+                    Brand Showcase
+                  </span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className={`w-2 h-2 rounded-full ${isPaused ? 'bg-yellow-400' : 'bg-green-400'} animate-pulse`}></div>
-                  <span className="text-xs text-gray-500">{isPaused ? 'Paused' : 'Live'}</span>
+                  <div
+                    className={`w-2 h-2 rounded-full ${
+                      isPaused ? "bg-yellow-400" : "bg-green-400"
+                    } animate-pulse`}
+                  ></div>
+                  <span className="text-xs text-gray-500">
+                    {isPaused ? "Paused" : "Live"}
+                  </span>
                 </div>
               </div>
             </div>
@@ -134,14 +152,11 @@ const TopBrand = () => {
                 pauseOnHover={true}
                 speed={40}
                 gradient={true}
-                gradientColor="rgb(255, 255, 255)" 
+                gradientColor="rgb(255, 255, 255)"
                 gradientWidth={50}
               >
                 {brands.map((brand, index) => (
-                  <div
-                    key={index}
-                    className="mx-8 group cursor-pointer"
-                  >
+                  <div key={index} className="mx-8 group cursor-pointer">
                     <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 min-w-[160px]">
                       {/* Brand logo container */}
                       <div className="relative h-16 w-24 mx-auto mb-4 flex items-center justify-center">
@@ -152,13 +167,15 @@ const TopBrand = () => {
                           className="object-contain h-12 w-auto filter grayscale group-hover:grayscale-0 transition-all duration-300 transform group-hover:scale-110"
                         />
                       </div>
-                      
+
                       {/* Brand info */}
                       <div className="text-center">
                         <h3 className="font-semibold text-gray-900 text-sm group-hover:text-blue-700 transition-colors duration-300">
                           {brand.name}
                         </h3>
-                        <p className="text-xs text-gray-500 mt-1">{brand.category}</p>
+                        <p className="text-xs text-gray-500 mt-1">
+                          {brand.category}
+                        </p>
                       </div>
 
                       {/* Hover overlay */}
@@ -182,7 +199,8 @@ const TopBrand = () => {
               Want to become our partner?
             </h3>
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Join thousands of brands who trust us to collect and showcase authentic customer reviews
+              Join thousands of brands who trust us to collect and showcase
+              authentic customer reviews
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200">

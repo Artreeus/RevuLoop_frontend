@@ -27,10 +27,12 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import PrimaryButton from "@/components/shared/PrimayButton";
+import UploadToCloudinary from "@/components/shared/UploadToCloudinary";
 
 type Props = {
   categories: { id: string; name: string }[];
 };
+
 
 export default function ReviewForm({ categories }: Props) {
   const [isLoading, setIsLoading] = useState(false);
@@ -74,16 +76,26 @@ export default function ReviewForm({ categories }: Props) {
     try {
       setIsLoading(true);
 
-      const formData = new FormData();
+      let imageUrl: string | null = null;
 
-      const reviewData = {
-        data: { ...formValue },
+      if (photo) {
+        imageUrl = await UploadToCloudinary(photo);
+        if (!imageUrl) {
+          toast.error("Image upload failed.");
+          return;
+        }
+      }
+
+      const reviewPayload = {
+        ...formValue,
+        images: imageUrl,
       };
 
-      formData.append("data", JSON.stringify(reviewData.data));
-      if (photo) formData.append("images", photo);
-
-      const response = await createReview(formData);
+      console.log("repaylod", reviewPayload);
+      
+      
+      const response = await createReview(reviewPayload);
+      console.log("repaylod", response);
 
       if (response.success) {
         toast.success("Review submitted successfully!");
@@ -268,10 +280,7 @@ export default function ReviewForm({ categories }: Props) {
           </div>
 
           {/* Submit Button */}
-          <PrimaryButton
-            type="submit"
-            disabled={isLoading}
-          >
+          <PrimaryButton type="submit" disabled={isLoading}>
             {isLoading ? "Submitting..." : "Submit Review"}
           </PrimaryButton>
         </form>

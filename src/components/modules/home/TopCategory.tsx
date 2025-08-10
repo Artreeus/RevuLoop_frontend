@@ -4,7 +4,7 @@ import Image from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight, TrendingUp } from "lucide-react";
+import { TrendingUp } from "lucide-react";
 
 const categories = [
   {
@@ -13,7 +13,7 @@ const categories = [
     gradient: "from-blue-400 to-blue-600",
     bgColor: "bg-blue-50",
     borderColor: "border-blue-200",
-    reviews: "2.3k"
+    reviews: "2.3k",
   },
   {
     name: "Mouse",
@@ -21,7 +21,7 @@ const categories = [
     gradient: "from-purple-400 to-purple-600",
     bgColor: "bg-purple-50",
     borderColor: "border-purple-200",
-    reviews: "1.8k"
+    reviews: "1.8k",
   },
   {
     name: "Power Bank",
@@ -29,7 +29,7 @@ const categories = [
     gradient: "from-green-400 to-green-600",
     bgColor: "bg-green-50",
     borderColor: "border-green-200",
-    reviews: "3.1k"
+    reviews: "3.1k",
   },
   {
     name: "Router",
@@ -37,7 +37,7 @@ const categories = [
     gradient: "from-yellow-400 to-orange-500",
     bgColor: "bg-yellow-50",
     borderColor: "border-yellow-200",
-    reviews: "1.5k"
+    reviews: "1.5k",
   },
   {
     name: "Headphone",
@@ -45,7 +45,7 @@ const categories = [
     gradient: "from-pink-400 to-pink-600",
     bgColor: "bg-pink-50",
     borderColor: "border-pink-200",
-    reviews: "4.2k"
+    reviews: "4.2k",
   },
   {
     name: "Cable & Converter",
@@ -53,7 +53,7 @@ const categories = [
     gradient: "from-indigo-400 to-indigo-600",
     bgColor: "bg-indigo-50",
     borderColor: "border-indigo-200",
-    reviews: "987"
+    reviews: "987",
   },
   {
     name: "Microphone",
@@ -61,7 +61,7 @@ const categories = [
     gradient: "from-red-400 to-red-600",
     bgColor: "bg-red-50",
     borderColor: "border-red-200",
-    reviews: "756"
+    reviews: "756",
   },
   {
     name: "WiFi Repeater",
@@ -69,11 +69,9 @@ const categories = [
     gradient: "from-teal-400 to-teal-600",
     bgColor: "bg-teal-50",
     borderColor: "border-teal-200",
-    reviews: "1.2k"
+    reviews: "1.2k",
   },
 ];
-
-
 
 const TopCategories = () => {
   const [slidesToShow, setSlidesToShow] = useState(6);
@@ -111,7 +109,7 @@ const TopCategories = () => {
     pauseOnHover: true,
     swipeToSlide: true,
     arrows: true,
-   
+
     responsive: [
       {
         breakpoint: 1280,
@@ -158,16 +156,17 @@ const TopCategories = () => {
             <TrendingUp className="w-4 h-4 mr-2 text-blue-600" />
             Most Popular Categories
           </div>
-          
+
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             Explore{" "}
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Top Categories
             </span>
           </h2>
-          
+
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover the most reviewed and trusted product categories based on real customer experiences
+            Discover the most reviewed and trusted product categories based on
+            real customer experiences
           </p>
         </div>
 
@@ -178,12 +177,18 @@ const TopCategories = () => {
               <div key={index} className="px-3">
                 <div className="group cursor-pointer">
                   {/* Category Card */}
-                  <div className={`relative ${cat.bgColor} rounded-2xl p-6 transition-all duration-300 hover:shadow-xl transform hover:-translate-y-2`}>
+                  <div
+                    className={`relative ${cat.bgColor} rounded-2xl p-6 transition-all duration-300 hover:shadow-xl transform hover:-translate-y-2`}
+                  >
                     {/* Gradient overlay on hover */}
-                    <div className={`absolute inset-0 bg-gradient-to-r ${cat.gradient} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300`}></div>
-                    
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-r ${cat.gradient} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300`}
+                    ></div>
+
                     {/* Image container */}
-                    <div className={`relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 mx-auto mb-4 bg-white rounded-full shadow-md border-2 ${cat.borderColor} overflow-hidden p-2 group-hover:shadow-lg transition-all duration-300`}>
+                    <div
+                      className={`relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 mx-auto mb-4 bg-white rounded-full shadow-md border-2 ${cat.borderColor} overflow-hidden p-2 group-hover:shadow-lg transition-all duration-300`}
+                    >
                       <div className="relative w-full h-full">
                         <Image
                           src={cat.img}
@@ -193,13 +198,15 @@ const TopCategories = () => {
                           className="object-contain group-hover:scale-110 transition-transform duration-300"
                         />
                       </div>
-                      
+
                       {/* Floating badge */}
-                      <div className={`absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r ${cat.gradient} rounded-full flex items-center justify-center shadow-md`}>
+                      <div
+                        className={`absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r ${cat.gradient} rounded-full flex items-center justify-center shadow-md`}
+                      >
                         <span className="text-white text-xs font-bold">★</span>
                       </div>
                     </div>
-                    
+
                     {/* Category info */}
                     <div className="text-center">
                       <h3 className="font-semibold text-gray-900 text-sm sm:text-base mb-1 group-hover:text-blue-700 transition-colors duration-300">
@@ -215,8 +222,6 @@ const TopCategories = () => {
             ))}
           </Slider>
         </div>
-
-       
       </div>
 
       {/* Custom CSS for slider arrows positioning */}

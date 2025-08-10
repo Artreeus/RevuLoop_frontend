@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { LogOut, Menu, X, ChevronDown, User, Settings, Bell, Search } from "lucide-react";
+import { LogOut, Menu, X, ChevronDown, User, Settings, Search } from "lucide-react";
 
-import logo from "../../assets/logo/mainlogo.png";
+import logo from "../../assets/logo/1-removebg-preview (2).png";
 import {
   DropdownMenu,
   DropdownMenuContent,

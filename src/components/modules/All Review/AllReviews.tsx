@@ -16,8 +16,7 @@ import {
   ChevronRight,
   SlidersHorizontal,
   X,
-  TrendingUp,
-  Menu
+  TrendingUp
 } from "lucide-react";
 import PrimaryButton from "@/components/shared/PrimayButton";
 import { TReview } from "@/types/review";
@@ -42,6 +41,8 @@ const AllReviews = () => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+
+
 
   const handleSearchQuery = (query: string, value: string | number) => {
     const params = new URLSearchParams(searchParams.toString());

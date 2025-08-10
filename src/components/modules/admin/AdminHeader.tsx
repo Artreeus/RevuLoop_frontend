@@ -16,13 +16,11 @@ import {
   Clock,
   MessageSquare,
   DollarSign,
-  Activity,
   CheckCircle
 } from "lucide-react";
 import { getMyProfile, logout } from "@/services/AuthService";
 import { useUser } from "@/context/UserContext";
 import { IProfile } from "@/types/profile";
-import PrimaryButton from "@/components/shared/PrimayButton";
 import Link from "next/link";
 import { protectedRoutes } from "@/app/contants";
 import { usePathname, useRouter } from "next/navigation";

@@ -39,7 +39,7 @@ const ProductMarketing = () => {
   }, []);
 
   // Handle mouse movement for interactive effects
-  const handleMouseMove = (e : any) => {
+  const handleMouseMove = (e: any) => {
     const rect = e.currentTarget.getBoundingClientRect();
     setMousePosition({
       x: (e.clientX - rect.left) / rect.width,
@@ -51,12 +51,12 @@ const ProductMarketing = () => {
     { icon: Volume2, label: "360° Sound", description: "Immersive audio" },
     { icon: Zap, label: "48hr Battery", description: "Long-lasting power" },
     { icon: Bluetooth, label: "Wireless", description: "Seamless connection" },
-    { icon: Star, label: "Premium", description: "Audiophile grade" }
+    { icon: Star, label: "Premium", description: "Audiophile grade" },
   ];
 
   return (
-    <div 
-      id="product-marketing" 
+    <div
+      id="product-marketing"
       className="relative overflow-hidden max-w-8xl mx-auto my-16"
       onMouseMove={handleMouseMove}
     >
@@ -65,43 +65,65 @@ const ProductMarketing = () => {
         className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-purple-900"
         style={{ transform: `translateY(${scrollY * 0.1}px)` }}
       ></div>
-      
+
       {/* Dynamic gradient overlay based on mouse position */}
       <div
         className="absolute inset-0 opacity-30"
         style={{
-          background: `radial-gradient(600px circle at ${mousePosition.x * 100}% ${mousePosition.y * 100}%, rgba(255, 0, 100, 0.1), transparent 40%)`,
+          background: `radial-gradient(600px circle at ${
+            mousePosition.x * 100
+          }% ${
+            mousePosition.y * 100
+          }%, rgba(255, 0, 100, 0.1), transparent 40%)`,
         }}
       ></div>
 
       {/* Enhanced animated background elements */}
       <div
         className="absolute top-20 left-10 w-64 h-64 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-3xl"
-        style={{ transform: `translateY(${scrollY * 0.2}px) scale(${1 + Math.sin(Date.now() / 2000) * 0.1})` }}
+        style={{
+          transform: `translateY(${scrollY * 0.2}px) scale(${
+            1 + Math.sin(Date.now() / 2000) * 0.1
+          })`,
+        }}
       ></div>
       <div
         className="absolute bottom-10 right-10 w-96 h-96 rounded-full bg-gradient-to-r from-red-500/15 to-orange-500/15 blur-3xl"
-        style={{ transform: `translateY(${-scrollY * 0.15}px) scale(${1 + Math.cos(Date.now() / 1500) * 0.1})` }}
+        style={{
+          transform: `translateY(${-scrollY * 0.15}px) scale(${
+            1 + Math.cos(Date.now() / 1500) * 0.1
+          })`,
+        }}
       ></div>
       <div
         className="absolute top-1/2 left-1/2 w-80 h-80 rounded-full bg-gradient-to-r from-blue-500/10 to-cyan-500/10 blur-3xl"
-        style={{ transform: `translate(-50%, -50%) translateY(${scrollY * 0.08}px) rotate(${scrollY * 0.02}deg)` }}
+        style={{
+          transform: `translate(-50%, -50%) translateY(${
+            scrollY * 0.08
+          }px) rotate(${scrollY * 0.02}deg)`,
+        }}
       ></div>
 
       {/* Main content container */}
       <div className="relative z-10 bg-gradient-to-r from-black/90 via-gray-900/95 to-purple-900/90 backdrop-blur-sm border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
         <div className="flex flex-col lg:flex-row justify-between items-center px-6 lg:px-16 py-16 min-h-[600px]">
-          
           {/* Left content with enhanced animations */}
-          <div className={`text-start w-full lg:w-1/2 lg:pr-12 mb-16 lg:mb-0 transform transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
-            
+          <div
+            className={`text-start w-full lg:w-1/2 lg:pr-12 mb-16 lg:mb-0 transform transition-all duration-1000 ${
+              isVisible
+                ? "translate-x-0 opacity-100"
+                : "-translate-x-10 opacity-0"
+            }`}
+          >
             {/* Enhanced badge */}
             <div className="inline-flex items-center gap-3 bg-gradient-to-r from-red-900/40 to-pink-900/40 backdrop-blur-md px-6 py-3 rounded-full mb-8 border border-red-500/30">
               <div className="relative">
                 <span className="w-3 h-3 rounded-full bg-red-500 animate-pulse block"></span>
                 <span className="absolute inset-0 w-3 h-3 rounded-full bg-red-500 animate-ping"></span>
               </div>
-              <p className="text-red-400 font-semibold">Premium Audio Experience</p>
+              <p className="text-red-400 font-semibold">
+                Premium Audio Experience
+              </p>
             </div>
 
             {/* Enhanced heading */}
@@ -114,14 +136,15 @@ const ProductMarketing = () => {
 
             {/* Enhanced description */}
             <p className="text-gray-300 text-lg mb-8 max-w-lg leading-relaxed">
-              Immerse yourself in crystal-clear sound with our premium audio devices. 
-              Designed for audiophiles who demand the very best in sound quality and performance.
+              Immerse yourself in crystal-clear sound with our premium audio
+              devices. Designed for audiophiles who demand the very best in
+              sound quality and performance.
             </p>
 
             {/* Feature highlights */}
             <div className="grid grid-cols-2 gap-4 mb-8">
               {features.map((feature, index) => (
-                <div 
+                <div
                   key={index}
                   className="flex items-center space-x-3 bg-white/5 backdrop-blur-md rounded-xl p-3 border border-white/10 hover:bg-white/10 transition-all duration-300"
                 >
@@ -129,8 +152,12 @@ const ProductMarketing = () => {
                     <feature.icon className="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <p className="text-white font-medium text-sm">{feature.label}</p>
-                    <p className="text-gray-400 text-xs">{feature.description}</p>
+                    <p className="text-white font-medium text-sm">
+                      {feature.label}
+                    </p>
+                    <p className="text-gray-400 text-xs">
+                      {feature.description}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -143,7 +170,7 @@ const ProductMarketing = () => {
                 <span>Experience Now</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
-              
+
               <button className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/20 transition-all duration-300">
                 Learn More
               </button>
@@ -151,10 +178,15 @@ const ProductMarketing = () => {
           </div>
 
           {/* Right content with enhanced product showcase */}
-          <div className={`w-full lg:w-1/2 relative h-[500px] flex justify-center items-center transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
-            
+          <div
+            className={`w-full lg:w-1/2 relative h-[500px] flex justify-center items-center transform transition-all duration-1000 delay-300 ${
+              isVisible
+                ? "translate-x-0 opacity-100"
+                : "translate-x-10 opacity-0"
+            }`}
+          >
             {/* Enhanced glowing background effect */}
-            <div 
+            <div
               className="absolute inset-0 bg-gradient-to-r from-red-500/30 via-purple-500/30 to-blue-500/30 rounded-full blur-3xl animate-pulse"
               style={{
                 transform: `scale(${1 + Math.sin(Date.now() / 1000) * 0.1})`,
@@ -162,18 +194,18 @@ const ProductMarketing = () => {
             ></div>
 
             {/* Rotating rings */}
-            <div 
+            <div
               className="absolute inset-0 border-2 border-gradient-to-r from-red-500/30 to-transparent rounded-full"
               style={{
                 transform: `rotate(${scrollY * 0.1}deg)`,
-                animation: 'spin 20s linear infinite',
+                animation: "spin 20s linear infinite",
               }}
             ></div>
-            <div 
+            <div
               className="absolute inset-4 border border-purple-500/20 rounded-full"
               style={{
                 transform: `rotate(${-scrollY * 0.05}deg)`,
-                animation: 'spin 30s linear infinite reverse',
+                animation: "spin 30s linear infinite reverse",
               }}
             ></div>
 
@@ -181,7 +213,9 @@ const ProductMarketing = () => {
             <div
               className="relative z-10 transform transition-all duration-500 hover:scale-110"
               style={{
-                transform: `translateY(${Math.sin(Date.now() / 1000) * 15}px) rotate(${scrollY * 0.02}deg)`,
+                transform: `translateY(${
+                  Math.sin(Date.now() / 1000) * 15
+                }px) rotate(${scrollY * 0.02}deg)`,
                 filter: "drop-shadow(0 0 40px rgba(255, 0, 100, 0.4))",
               }}
             >
@@ -194,7 +228,7 @@ const ProductMarketing = () => {
             </div>
 
             {/* Enhanced floating spec callouts */}
-            <div 
+            <div
               className="absolute top-1/4 -left-8 bg-gradient-to-r from-white/15 to-white/5 backdrop-blur-md px-4 py-3 rounded-xl text-white border border-white/20 shadow-lg"
               style={{
                 transform: `translateY(${Math.sin(Date.now() / 1200) * 5}px)`,
@@ -206,8 +240,8 @@ const ProductMarketing = () => {
               </div>
               <p className="text-xs text-gray-300">Surround audio</p>
             </div>
-            
-            <div 
+
+            <div
               className="absolute bottom-1/4 -right-8 bg-gradient-to-r from-white/15 to-white/5 backdrop-blur-md px-4 py-3 rounded-xl text-white border border-white/20 shadow-lg"
               style={{
                 transform: `translateY(${Math.cos(Date.now() / 1200) * 5}px)`,
@@ -220,10 +254,12 @@ const ProductMarketing = () => {
               <p className="text-xs text-gray-300">Long lasting</p>
             </div>
 
-            <div 
+            <div
               className="absolute top-1/2 right-4 bg-gradient-to-r from-white/15 to-white/5 backdrop-blur-md px-4 py-3 rounded-xl text-white border border-white/20 shadow-lg"
               style={{
-                transform: `translateY(${Math.sin(Date.now() / 800 + 1) * 8}px)`,
+                transform: `translateY(${
+                  Math.sin(Date.now() / 800 + 1) * 8
+                }px)`,
               }}
             >
               <div className="flex items-center space-x-2">
@@ -239,18 +275,27 @@ const ProductMarketing = () => {
       {/* Custom CSS for additional animations */}
       <style jsx>{`
         @keyframes gradient {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
+          0%,
+          100% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
         }
-        
+
         .animate-gradient {
           background-size: 200% 200%;
           animation: gradient 3s ease infinite;
         }
-        
+
         @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
         }
       `}</style>
     </div>

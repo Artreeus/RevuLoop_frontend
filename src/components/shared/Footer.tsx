@@ -15,12 +15,10 @@ import {
   Download,
   Star,
   TrendingUp,
-  Award,
   Users,
   ArrowRight,
 } from "lucide-react";
 import { featuredReview } from "@/services/Review";
-import { CardContent, CardTitle } from "../ui/card";
 import { StarRating } from "../modules/All Review/ReviewDetails";
 import { TReview } from "@/types/review";
 
@@ -28,6 +26,7 @@ const Footer = async () => {
   const page = "1";
   const limit = "6";
   const { data: featureds } = await featuredReview(page, limit);
+  console.log("featureds", featureds);
 
   const quickLinks = [
     { href: "/", label: "Home", icon: "🏠" },
@@ -63,13 +62,6 @@ const Footer = async () => {
       label: "LinkedIn",
       color: "hover:text-blue-600",
     },
-  ];
-
-  const stats = [
-    { icon: Users, label: "Active Users", value: "50K+" },
-    { icon: Star, label: "Reviews", value: "25K+" },
-    { icon: Award, label: "Awards", value: "15+" },
-    { icon: TrendingUp, label: "Growth", value: "200%" },
   ];
 
   return (
@@ -294,7 +286,7 @@ const Footer = async () => {
                         <Image
                           width={50}
                           height={50}
-                          src={review.image}
+                          src={review?.image}
                           alt={review.title}
                           className="w-12 h-12 rounded-lg object-cover"
                         />
